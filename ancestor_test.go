@@ -10,16 +10,10 @@ func TestAncestor(t *testing.T) {
 	p := Path("/Users/michaelthornton/personal/ancestor")
 	a := p.Ancestors()
 
-	assert.Equal(t, "/Users/michaelthornton/personal/ancestor", string(a.Next()))
-	assert.Equal(t, "/Users/michaelthornton/personal", string(a.Next()))
-	assert.Equal(t, "/Users/michaelthornton", string(a.Next()))
-	assert.Equal(t, "/Users", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-	assert.Equal(t, "/", string(a.Next()))
-
+	assert.Equal(t, "/Users/michaelthornton/personal/ancestor", a.Next().String())
+	assert.Equal(t, "/Users/michaelthornton/personal", a.Next().String())
+	assert.Equal(t, "/Users/michaelthornton", a.Next().String())
+	assert.Equal(t, "/Users", a.Next().String())
+	assert.Nil(t, a.Next())
+	assert.Nil(t, a.Next())
 }
