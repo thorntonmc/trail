@@ -1,4 +1,4 @@
-module github.com/thorntonmc/ancestor
+module github.com/thorntonmc/ancestry
 
 go 1.17
 
