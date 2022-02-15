@@ -1,2 +1,2 @@
 # trail 
-golang filepath extensions
+go filepath extensions
