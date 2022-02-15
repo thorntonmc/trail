@@ -6,7 +6,7 @@ type Trail struct {
 	Inner string
 }
 
-func newTrail(s string) Trail {
+func NewTrail(s string) Trail {
 	return Trail{s}
 }
 
