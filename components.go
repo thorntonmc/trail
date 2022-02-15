@@ -2,7 +2,6 @@ package trail
 
 import (
 	"bytes"
-	"fmt"
 )
 
 type state int64
@@ -38,13 +37,10 @@ func (c *Components) Next() []byte {
 
 func (c *Components) parseNextComponent() []byte {
 	index := bytes.Index(c.trail, []byte(string(separator)))
-
-	fmt.Println(index)
 	if index < 0 {
 		return c.trail
 	}
 
-	fmt.Println(index)
 	component := c.trail[:index]
 	c.trail = c.trail[index+1:]
 	return component
