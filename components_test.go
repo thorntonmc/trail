@@ -15,6 +15,7 @@ func TestComponentRead(t *testing.T) {
 	assert.Equal(t, "name", string(c.Next()))
 	assert.Equal(t, "personal", string(c.Next()))
 	assert.Equal(t, "trail", string(c.Next()))
+	assert.Equal(t, "", string(c.Next()))
 
 	c, _ = testTrailNpr.Components()
 	assert.Equal(t, "personal", string(c.Next()))
