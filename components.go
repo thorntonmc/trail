@@ -30,6 +30,8 @@ func (c *Components) Next() []byte {
 		return c.parseNextComponent()
 	case body:
 		return c.parseNextComponent()
+	case done:
+		return []byte{}
 	}
 
 	return []byte{}
@@ -38,6 +40,7 @@ func (c *Components) Next() []byte {
 func (c *Components) parseNextComponent() []byte {
 	index := bytes.Index(c.trail, []byte(string(separator)))
 	if index < 0 {
+		c.front = done
 		return c.trail
 	}
 
