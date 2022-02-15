@@ -1,4 +1,4 @@
-module github.com/thorntonmc/ancestry
+module github.com/thorntonmc/trail
 
 go 1.17
 

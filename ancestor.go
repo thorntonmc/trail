@@ -1,33 +1,19 @@
-package main
+package trail
 
 import "path"
 
-type RootPathErr struct{}
-
-// Path represents a slash("/") separated path
-type Path string
-
-func (p Path) String() string {
-	return string(p)
-}
-
-func (p Path) Ancestors() *Ancestor {
-	return &Ancestor{
-		p,
-	}
-}
-
 type Ancestor struct {
-	val Path
+	trail *Trail
 }
 
-func (a *Ancestor) Next() *Path {
-	base := path.Base(a.val.String())
-	if a.val == Path(base) {
+func (a *Ancestor) Next() *Trail {
+	base := path.Base(string(a.trail.Inner))
+	if a.trail.Inner == base {
 		return nil
 	}
 
-	p := a.val
-	a.val = Path(path.Dir(a.val.String()))
-	return &p
+	trail := a.trail
+	nt := newTrail(path.Dir(a.trail.Inner))
+	a.trail = &nt
+	return trail
 }
