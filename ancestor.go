@@ -13,7 +13,7 @@ func (a *Ancestor) Next() *Trail {
 	}
 
 	trail := a.trail
-	nt := newTrail(path.Dir(a.trail.Inner))
+	nt := NewTrail(path.Dir(a.trail.Inner))
 	a.trail = &nt
 	return trail
 }
